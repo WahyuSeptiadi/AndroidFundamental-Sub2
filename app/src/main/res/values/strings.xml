@@ -1,0 +1,30 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="search">Search User</string>
+    <string name="detail">Detail User</string>
+
+    <string name="app_name">Github API</string>
+    <string name="str_name">name</string>
+    <string name="str_company">Company : </string>
+    <string name="todo">todo</string>
+    <string name="hint_searching">enter username</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_username">username</string>
+    <string name="str_repository">Repository :</string>
+    <string name="value_0">0</string>
+    <string name="str_followers">Follower :</string>
+    <string name="str_following">Following :</string>
+    <string name="tab_followers">Followers</string>
+    <string name="tab_following">Following</string>
+    <string name="str_message">Data Not Found</string>
+    <string name="str_followersnull">Has no Followers</string>
+    <string name="str_followingnull">Never Following</string>
+    <string name="str_iduser">idUser</string>
+    <string name="str_typeuser">typeUser</string>
+    <string name="str_null">Not Set</string>
+    <string name="str_location">Location : </string>
+    <string name="str_change_language">Change language</string>
+    <string name="toast_searching">Please wait, searching user. .</string>
+    <string name="toast_enterkey">Please, Enter Keyword !</string>
+    <string name="loading">. . .</string>
+
+</resources>
