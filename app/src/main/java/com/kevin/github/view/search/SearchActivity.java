@@ -70,7 +70,7 @@ public class SearchActivity extends AppCompatActivity {
                 getDataUsers();
             }
 
-            // autohide after search keyword
+            // auto hide after search keyword
             hideSoftKeyboard();
         });
 

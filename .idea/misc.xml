@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse avatar_url" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse company" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse followers" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse following" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse location" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse login" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse name" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserDetailResponse public_repos" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserListResponse items" />
+      <entry_point TYPE="field" FQNAME="com.kevin.github.model.UserListResponse total_count" />
+    </entry_points>
+    <pattern value="com.kevin.github.model.UserDetailResponse" method="getId" />
+    <pattern value="com.kevin.github.model.UserDetailResponse" method="setId" />
+    <pattern value="com.kevin.github.model.UserDetailResponse" />
+    <pattern value="com.kevin.github.model.UserListResponse" />
+    <pattern value="com.kevin.github.model.UserResultResponse" method="UserResultResponse" />
+    <pattern value="com.kevin.github.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.kevin.github.view.detail.DetailActivity" />
+    <pattern value="com.kevin.github.ExampleInstrumentedTest" />
+    <pattern value="com.kevin.github.ExampleUnitTest" />
+    <pattern value="com.kevin.github.view.search.SearchActivity" />
+    <pattern value="com.kevin.github.view.SplashScreenActivity" />
+    <pattern value="com.kevin.github.model.UserResultResponse" method="setId" />
+    <pattern value="com.kevin.github.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.kevin.github.model.UserResultResponse" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
