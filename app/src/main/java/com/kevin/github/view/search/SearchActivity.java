@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,7 +27,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FollowerListsAdapter adapter;
-    private EditText et_username;
+    private EditText etUsername;
     private SearchViewModel searchViewModel;
     private ProgressBar progressBar;
 
@@ -39,15 +40,14 @@ public class SearchActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_search);
         ImageView btnSearch = findViewById(R.id.btnCari);
-        et_username = findViewById(R.id.editTextSearch);
-        ImageView cekProfile = findViewById(R.id.imgProfile);
+        etUsername = findViewById(R.id.editTextSearch);
+        ImageView changeConfig = findViewById(R.id.imgSetting);
         message = findViewById(R.id.tv_message);
 
         progressBar = findViewById(R.id.progress_circular);
         progressBar.setProgress(0);
 
         setRecyclerView();
-
 
         searchViewModel = new ViewModelProvider(this,
                 new ViewModelProvider.NewInstanceFactory()).get(SearchViewModel.class);
@@ -56,39 +56,65 @@ public class SearchActivity extends AppCompatActivity {
             String data = savedInstanceState.getString("key");
 
             searchViewModel.setSearchData(data);
-            getData();
+            getDataUsers();
             progressBar.setVisibility(View.GONE);
         }
 
         btnSearch.setOnClickListener(v -> {
-            if (TextUtils.isEmpty(et_username.getText().toString())) {
+            if (TextUtils.isEmpty(etUsername.getText().toString())) {
                 Toast.makeText(this, getResources().getString(R.string.toast_enter_key), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
             } else {
                 Toast.makeText(this, getResources().getString(R.string.toast_searching), Toast.LENGTH_SHORT).show();
-                searchViewModel.setSearchData(et_username.getText().toString());
-                getData();
+                searchViewModel.setSearchData(etUsername.getText().toString());
+                getDataUsers();
             }
 
             // autohide after search keyword
-            InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
-            assert imm != null;
-            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+            hideSoftKeyboard();
         });
 
-        cekProfile.setOnClickListener(v -> {
+        etUsername.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                String username = etUsername.getText().toString();
+
+                if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(this, getResources().getString(R.string.toast_enter_key), Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                } else {
+                    Toast.makeText(this, getResources().getString(R.string.toast_searching), Toast.LENGTH_SHORT).show();
+                    searchViewModel.setSearchData(username);
+                    getDataUsers();
+                }
+
+                hideSoftKeyboard();
+                return true;
+            }
+            return false;
+        });
+
+        changeConfig.setOnClickListener(v -> {
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);
         });
     }
 
+    private void hideSoftKeyboard() {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View view = this.getCurrentFocus();
+        if (view == null) {
+            view = new View(this);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("key", et_username.getText().toString());
+        outState.putString("key", etUsername.getText().toString());
     }
 
-    private void getData() {
+    private void getDataUsers() {
         progressBar.setVisibility(View.VISIBLE);
         message.setVisibility(View.INVISIBLE);
         searchViewModel.getSearchData().observe(this, git_user -> {
@@ -106,7 +132,7 @@ public class SearchActivity extends AppCompatActivity {
                 message.setText(R.string.str_message);
                 message.setVisibility(View.VISIBLE);
             }
-            et_username.setText("");
+            etUsername.setText("");
         });
     }
 

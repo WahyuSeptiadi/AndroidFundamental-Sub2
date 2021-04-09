@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imgProfile"
+            android:id="@+id/imgSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -78,7 +78,8 @@
             android:autofillHints=""
             android:background="@android:color/transparent"
             android:hint="@string/hint_searching"
-            android:inputType="textAutoComplete"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/BLOCK"
             app:layout_constraintTop_toTopOf="parent"
