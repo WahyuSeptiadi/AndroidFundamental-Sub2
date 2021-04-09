@@ -1,4 +1,4 @@
-package com.kevin.github.constant;
+package com.kevin.github.helper;
 
 import com.kevin.github.BuildConfig;
 

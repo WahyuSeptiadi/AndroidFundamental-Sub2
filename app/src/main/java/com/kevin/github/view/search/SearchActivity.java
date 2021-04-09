@@ -39,7 +39,6 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         recyclerView = findViewById(R.id.rv_search);
-        ImageView btnSearch = findViewById(R.id.btnCari);
         etUsername = findViewById(R.id.editTextSearch);
         ImageView changeConfig = findViewById(R.id.imgSetting);
         message = findViewById(R.id.tv_message);
@@ -59,20 +58,6 @@ public class SearchActivity extends AppCompatActivity {
             getDataUsers();
             progressBar.setVisibility(View.GONE);
         }
-
-        btnSearch.setOnClickListener(v -> {
-            if (TextUtils.isEmpty(etUsername.getText().toString())) {
-                Toast.makeText(this, getResources().getString(R.string.toast_enter_key), Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.GONE);
-            } else {
-                Toast.makeText(this, getResources().getString(R.string.toast_searching), Toast.LENGTH_SHORT).show();
-                searchViewModel.setSearchData(etUsername.getText().toString());
-                getDataUsers();
-            }
-
-            // auto hide after search keyword
-            hideSoftKeyboard();
-        });
 
         etUsername.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {

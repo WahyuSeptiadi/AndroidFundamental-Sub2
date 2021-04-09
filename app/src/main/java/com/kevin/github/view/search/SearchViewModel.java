@@ -7,10 +7,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.kevin.github.constant.BaseConst;
-import com.kevin.github.helper.ServiceGenerator;
+import com.kevin.github.helper.BaseConst;
+import com.kevin.github.helper.Network;
 import com.kevin.github.model.UserListResponse;
-import com.kevin.github.service.GithubService;
+import com.kevin.github.helper.ApiService;
 
 import java.util.Objects;
 
@@ -30,9 +30,9 @@ public class SearchViewModel extends ViewModel {
     }
 
     public void loadJSON(String username) {
-        GithubService gitService = ServiceGenerator.build().create(GithubService.class);
+        ApiService gitApiService = Network.build().create(ApiService.class);
 
-        Call<UserListResponse> callAsync = gitService.cariUser(username, BaseConst.GITHUB_TOKEN);
+        Call<UserListResponse> callAsync = gitApiService.cariUser(username, BaseConst.GITHUB_TOKEN);
 
         callAsync.enqueue(new Callback<UserListResponse>() {
             @Override

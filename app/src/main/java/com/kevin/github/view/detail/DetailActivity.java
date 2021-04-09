@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
-import com.kevin.github.constant.BaseConst;
+import com.kevin.github.helper.BaseConst;
 import com.kevin.github.R;
 import com.kevin.github.view.followers.FollowersFragment;
 import com.kevin.github.view.following.FollowingFragment;

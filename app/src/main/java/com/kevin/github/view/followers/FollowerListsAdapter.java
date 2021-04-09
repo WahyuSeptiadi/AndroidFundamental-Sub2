@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.kevin.github.constant.BaseConst;
+import com.kevin.github.helper.BaseConst;
 import com.kevin.github.model.UserResultResponse;
 import com.kevin.github.R;
 import com.kevin.github.view.detail.DetailActivity;
@@ -62,7 +62,6 @@ public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdap
         private final CircleImageView imgAvatar;
         private final TextView username;
         private final TextView typeUser;
-        private final TextView idUser;
         private final CardView item;
 
         public ViewHolder(View itemView) {
@@ -71,7 +70,6 @@ public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdap
             imgAvatar = itemView.findViewById(R.id.civ_search);
             username = itemView.findViewById(R.id.usernameValue_listSearch);
             typeUser = itemView.findViewById(R.id.typeUserValue_listSearch);
-            idUser = itemView.findViewById(R.id.idUserValue_listSearch);
             item = itemView.findViewById(R.id.cardListSearch);
         }
 
@@ -81,7 +79,6 @@ public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdap
                     .into(imgAvatar);
             username.setText(userResultResponse.getLogin());
             typeUser.setText(String.valueOf(userResultResponse.getType()));
-            idUser.setText(String.valueOf(userResultResponse.getId()));
         }
     }
 

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kevin.github.R;
-import com.kevin.github.constant.BaseConst;
+import com.kevin.github.helper.BaseConst;
 
 import java.util.Objects;
 

@@ -16,8 +16,7 @@
         <activity android:name="com.kevin.github.view.detail.DetailActivity" />
         <activity
             android:name="com.kevin.github.view.search.SearchActivity"
-            android:launchMode="singleTask" />
-        <activity android:name="com.kevin.github.view.SplashScreenActivity">
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
