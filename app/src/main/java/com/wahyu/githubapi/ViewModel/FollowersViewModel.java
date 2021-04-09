@@ -32,7 +32,7 @@ public class FollowersViewModel extends ViewModel {
     public void setFollowersData(String username) {
         GithubService gitService = ServiceGenerator.build().create(GithubService.class);
 
-        Call<List<SearchUserInfo>> callAsync = gitService.getUserFollowers(username, Base.TOKEN1);
+        Call<List<SearchUserInfo>> callAsync = gitService.getUserFollowers(username, Base.GITHUB_TOKEN);
 
         callAsync.enqueue(new Callback<List<SearchUserInfo>>() {
             @Override

@@ -37,7 +37,7 @@ public class SearchViewModel extends ViewModel {
     public void loadJSON(String username) {
         GithubService gitService = ServiceGenerator.build().create(GithubService.class);
 
-        Call<SearchUser> callAsync = gitService.cariUser(username, Base.TOKEN1);
+        Call<SearchUser> callAsync = gitService.cariUser(username, Base.GITHUB_TOKEN);
 
         callAsync.enqueue(new Callback<SearchUser>() {
             @Override

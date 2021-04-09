@@ -24,29 +24,26 @@ import retrofit2.Response;
  */
 
 public class DetailViewModel extends ViewModel {
-    private MutableLiveData<UserDetails> detailUser = new MutableLiveData<>();
+    private final MutableLiveData<UserDetails> detailUser = new MutableLiveData<>();
 
-    public LiveData<UserDetails> getDetailUser(){
+    public LiveData<UserDetails> getDetailUser() {
         return detailUser;
     }
 
     public void setDetailUser(String username) {
         GithubService gitService = ServiceGenerator.build().create(GithubService.class);
 
-        Call<UserDetails> callAsync = gitService.getUserDetail(username, Base.TOKEN1);
+        Call<UserDetails> callAsync = gitService.getUserDetail(username, Base.GITHUB_TOKEN);
 
         callAsync.enqueue(new Callback<UserDetails>() {
             @Override
             public void onResponse(@NonNull Call<UserDetails> call, @NonNull Response<UserDetails> response) {
-
-                // masih error --> ketika request detail user beberapa kali, response.body() muncul NULL
-                if(response.body() != null) {
+                if (response.body() != null) {
                     UserDetails git = response.body();
                     Log.e("SUKSES DETAIL", String.valueOf(response.body()));
                     detailUser.setValue(git);
-                }else{
-                    assert response.body() != null;
-                    Log.e("ERROR DETAIL", String.valueOf(response.body()));
+                } else {
+                    Log.e("ERROR DETAIL", "response body = null");
                 }
             }
 
