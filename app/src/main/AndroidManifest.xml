@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.wahyu.githubapi">
+    package="com.kevin.github">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".View.DetailActivity" />
+        <activity android:name="com.kevin.github.view.detail.DetailActivity" />
         <activity
-            android:name=".View.SearchActivity"
+            android:name="com.kevin.github.view.search.SearchActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".View.SplashScreenActivity">
+        <activity android:name="com.kevin.github.view.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
