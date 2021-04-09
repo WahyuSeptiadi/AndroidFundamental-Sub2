@@ -1,29 +1,24 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="search">Cari Pengguna</string>
     <string name="detail">Rincian Pengguna</string>
-
     <string name="app_name">Github API</string>
-    <string name="str_name">nama</string>
     <string name="str_company">Perusahaan : </string>
     <string name="todo">lakukan</string>
     <string name="hint_searching">masukkan nama pengguna</string>
-    <string name="hello_blank_fragment">Halo frangment kosong</string>
     <string name="str_username">nama pengguna</string>
     <string name="str_repository">Berkas Data :</string>
-    <string name="value_0">0</string>
     <string name="str_followers">Pengikut :</string>
     <string name="str_following">Mengikuti :</string>
     <string name="tab_followers">Pengikut</string>
     <string name="tab_following">Mengikuti</string>
     <string name="str_message">Data tidak ditemukan</string>
-    <string name="str_followersnull">Belum memiliki pengikut</string>
-    <string name="str_followingnull">Belum ingin mengikuti</string>
-    <string name="str_iduser">idPengguna</string>
-    <string name="str_typeuser">tipePengguna</string>
+    <string name="str_followers_null">Belum memiliki pengikut</string>
+    <string name="str_following_null">Belum ingin mengikuti</string>
+    <string name="str_id_user">idPengguna</string>
+    <string name="str_type_user">tipePengguna</string>
     <string name="str_null">belum diatur</string>
     <string name="str_location">Lokasi : </string>
-    <string name="str_change_language">Ubah bahasa</string>
     <string name="toast_searching">Tolong tunggu, sedang mencari. .</string>
-    <string name="toast_enterkey">Tolong, masukkan kata kunci !</string>
+    <string name="toast_enter_key">Tolong, masukkan kata kunci !</string>
     <string name="loading">. . .</string>
 </resources>

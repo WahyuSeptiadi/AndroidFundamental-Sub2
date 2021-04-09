@@ -13,8 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.kevin.github.constant.Base;
-import com.kevin.github.model.SearchUserInfo;
+import com.kevin.github.constant.BaseConst;
+import com.kevin.github.model.UserResultResponse;
 import com.kevin.github.R;
 import com.kevin.github.view.detail.DetailActivity;
 
@@ -24,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdapter.ViewHolder> {
 
-    private List<SearchUserInfo> mInfo_Users;
+    private List<UserResultResponse> mInfo_Users;
     private final Context mContext;
 
     public FollowerListsAdapter(Context baseContext) {
@@ -34,7 +34,7 @@ public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_itemlist, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user_list, parent, false);
         return new ViewHolder(view);
     }
 
@@ -46,7 +46,7 @@ public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdap
             toDetail.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             Bundle bundle = new Bundle();
-            bundle.putString(Base.DATA_KEY, mInfo_Users.get(position).getLogin());
+            bundle.putString(BaseConst.DATA_KEY, mInfo_Users.get(position).getLogin());
             toDetail.putExtras(bundle);
 
             mContext.startActivity(toDetail);
@@ -75,22 +75,22 @@ public class FollowerListsAdapter extends RecyclerView.Adapter<FollowerListsAdap
             item = itemView.findViewById(R.id.cardListSearch);
         }
 
-        public void bind(SearchUserInfo searchUserInfo) {
-            Picasso.get().load(searchUserInfo.getAvatarUrl())
+        public void bind(UserResultResponse userResultResponse) {
+            Picasso.get().load(userResultResponse.getAvatarUrl())
                     .placeholder(R.drawable.ic_profile)
                     .into(imgAvatar);
-            username.setText(searchUserInfo.getLogin());
-            typeUser.setText(String.valueOf(searchUserInfo.getType()));
-            idUser.setText(String.valueOf(searchUserInfo.getId()));
+            username.setText(userResultResponse.getLogin());
+            typeUser.setText(String.valueOf(userResultResponse.getType()));
+            idUser.setText(String.valueOf(userResultResponse.getId()));
         }
     }
 
-    public void setData(List<SearchUserInfo> infoUser) {
+    public void setData(List<UserResultResponse> infoUser) {
         this.mInfo_Users = infoUser;
         notifyDataSetChanged();
     }
 
-    public void clearList(List<SearchUserInfo> clearListUser) {
+    public void clearList(List<UserResultResponse> clearListUser) {
         this.mInfo_Users = clearListUser;
         this.mInfo_Users.clear();
         notifyDataSetChanged();

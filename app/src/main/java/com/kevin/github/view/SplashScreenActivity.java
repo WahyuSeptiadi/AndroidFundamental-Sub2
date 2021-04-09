@@ -20,12 +20,12 @@ public class SplashScreenActivity extends AppCompatActivity {
                 .withFullScreen()
                 .withTargetActivity(SearchActivity.class)
                 .withSplashTimeOut(3000)
-                .withBackgroundColor(Color.parseColor("#2196F3"))
+                .withBackgroundColor(Color.parseColor("#000C51"))
                 .withHeaderText("")
                 .withFooterText("Copyright 2021")
                 .withBeforeLogoText("")
                 .withAfterLogoText("Github API")
-                .withLogo(R.drawable.github);
+                .withLogo(R.mipmap.ic_logo_apps_round);
 
         config.getHeaderTextView().setTextColor(Color.WHITE);
         config.getFooterTextView().setTextColor(Color.WHITE);

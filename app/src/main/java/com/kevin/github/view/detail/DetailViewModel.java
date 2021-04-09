@@ -7,9 +7,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.kevin.github.constant.Base;
+import com.kevin.github.constant.BaseConst;
 import com.kevin.github.helper.ServiceGenerator;
-import com.kevin.github.model.UserDetails;
+import com.kevin.github.model.UserDetailResponse;
 import com.kevin.github.service.GithubService;
 
 import java.util.Objects;
@@ -19,22 +19,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DetailViewModel extends ViewModel {
-    private final MutableLiveData<UserDetails> detailUser = new MutableLiveData<>();
+    private final MutableLiveData<UserDetailResponse> detailUser = new MutableLiveData<>();
 
-    public LiveData<UserDetails> getDetailUser() {
+    public LiveData<UserDetailResponse> getDetailUser() {
         return detailUser;
     }
 
     public void setDetailUser(String username) {
         GithubService gitService = ServiceGenerator.build().create(GithubService.class);
 
-        Call<UserDetails> callAsync = gitService.getUserDetail(username, Base.GITHUB_TOKEN);
+        Call<UserDetailResponse> callAsync = gitService.getUserDetail(username, BaseConst.GITHUB_TOKEN);
 
-        callAsync.enqueue(new Callback<UserDetails>() {
+        callAsync.enqueue(new Callback<UserDetailResponse>() {
             @Override
-            public void onResponse(@NonNull Call<UserDetails> call, @NonNull Response<UserDetails> response) {
+            public void onResponse(@NonNull Call<UserDetailResponse> call, @NonNull Response<UserDetailResponse> response) {
                 if (response.body() != null) {
-                    UserDetails git = response.body();
+                    UserDetailResponse git = response.body();
                     Log.e("SUCCESS DETAIL", String.valueOf(response.body()));
                     detailUser.setValue(git);
                 } else {
@@ -43,7 +43,7 @@ public class DetailViewModel extends ViewModel {
             }
 
             @Override
-            public void onFailure(@NonNull Call<UserDetails> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<UserDetailResponse> call, @NonNull Throwable t) {
                 Log.e("FAILURE DETAIL", Objects.requireNonNull(t.getMessage()));
             }
         });

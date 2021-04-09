@@ -19,10 +19,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kevin.github.view.followers.FollowerListsAdapter;
 import com.kevin.github.R;
+import com.kevin.github.view.followers.FollowerListsAdapter;
 
-public class SearchActivity extends AppCompatActivity{
+public class SearchActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FollowerListsAdapter adapter;
@@ -30,9 +30,7 @@ public class SearchActivity extends AppCompatActivity{
     private SearchViewModel searchViewModel;
     private ProgressBar progressBar;
 
-    //buat cek
-    TextView message;
-    ImageView cekProfile;
+    private TextView message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class SearchActivity extends AppCompatActivity{
         recyclerView = findViewById(R.id.rv_search);
         ImageView btnSearch = findViewById(R.id.btnCari);
         et_username = findViewById(R.id.editTextSearch);
-        cekProfile = findViewById(R.id.imgProfile);
+        ImageView cekProfile = findViewById(R.id.imgProfile);
         message = findViewById(R.id.tv_message);
 
         progressBar = findViewById(R.id.progress_circular);
@@ -52,9 +50,9 @@ public class SearchActivity extends AppCompatActivity{
 
 
         searchViewModel = new ViewModelProvider(this,
-                          new ViewModelProvider.NewInstanceFactory()).get(SearchViewModel.class);
+                new ViewModelProvider.NewInstanceFactory()).get(SearchViewModel.class);
 
-        if (savedInstanceState != null){
+        if (savedInstanceState != null) {
             String data = savedInstanceState.getString("key");
 
             searchViewModel.setSearchData(data);
@@ -63,10 +61,10 @@ public class SearchActivity extends AppCompatActivity{
         }
 
         btnSearch.setOnClickListener(v -> {
-            if (TextUtils.isEmpty(et_username.getText().toString())){
-                Toast.makeText(this, getResources().getString(R.string.toast_enterkey), Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(et_username.getText().toString())) {
+                Toast.makeText(this, getResources().getString(R.string.toast_enter_key), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
-            }else{
+            } else {
                 Toast.makeText(this, getResources().getString(R.string.toast_searching), Toast.LENGTH_SHORT).show();
                 searchViewModel.setSearchData(et_username.getText().toString());
                 getData();
@@ -90,18 +88,18 @@ public class SearchActivity extends AppCompatActivity{
         outState.putString("key", et_username.getText().toString());
     }
 
-    private void getData(){
+    private void getData() {
         progressBar.setVisibility(View.VISIBLE);
         message.setVisibility(View.INVISIBLE);
         searchViewModel.getSearchData().observe(this, git_user -> {
-            if (git_user.getTotal_count() > 0){
+            if (git_user.getTotal_count() > 0) {
                 adapter.setData(git_user.getItems());
 
                 recyclerView.setAdapter(adapter);
 
                 message.setVisibility(View.INVISIBLE);
                 progressBar.setVisibility(View.GONE);
-            }else{
+            } else {
                 adapter.clearList(git_user.getItems());
 
                 progressBar.setVisibility(View.GONE);
@@ -112,7 +110,7 @@ public class SearchActivity extends AppCompatActivity{
         });
     }
 
-    private void setRecyclerView(){
+    private void setRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         recyclerView.smoothScrollToPosition(0);

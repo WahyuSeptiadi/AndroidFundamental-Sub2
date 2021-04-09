@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
-import com.kevin.github.constant.Base;
+import com.kevin.github.constant.BaseConst;
 import com.kevin.github.R;
 import com.kevin.github.view.followers.FollowersFragment;
 import com.kevin.github.view.following.FollowingFragment;
@@ -62,7 +62,7 @@ public class DetailActivity extends AppCompatActivity {
         TabLayout mTabLayout = findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
 
-        String username = getIntent().getStringExtra(Base.DATA_KEY);
+        String username = getIntent().getStringExtra(BaseConst.DATA_KEY);
         detailViewModel = new ViewModelProvider(this,
                           new ViewModelProvider.NewInstanceFactory()).get(DetailViewModel.class);
         detailViewModel.setDetailUser(username);
@@ -111,7 +111,7 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.tablayout_detail, menu);
+        getMenuInflater().inflate(R.menu.tab_layout, menu);
         return true;
     }
 

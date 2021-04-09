@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kevin.github.R;
-import com.kevin.github.constant.Base;
+import com.kevin.github.constant.BaseConst;
 
 import java.util.Objects;
 
@@ -37,7 +37,7 @@ public class FollowingFragment extends Fragment {
 
         setRecyclerView();
 
-        String username = Objects.requireNonNull(getActivity()).getIntent().getStringExtra(Base.DATA_KEY);
+        String username = Objects.requireNonNull(getActivity()).getIntent().getStringExtra(BaseConst.DATA_KEY);
         followingViewModel = new ViewModelProvider(this,
                 new ViewModelProvider.NewInstanceFactory()).get(FollowingViewModel.class);
 
@@ -55,7 +55,7 @@ public class FollowingFragment extends Fragment {
                 adapter.clearList(git_user);
 
                 progressBar.setVisibility(View.GONE);
-                message.setText(R.string.str_followingnull);
+                message.setText(R.string.str_following_null);
                 message.setVisibility(View.VISIBLE);
             } else {
                 adapter.setData(git_user);
