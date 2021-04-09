@@ -55,7 +55,7 @@
                     android:layout_marginTop="13dp"
                     android:text="@string/detail"
                     android:textAlignment="center"
-                    android:textColor="#fff"
+                    android:textColor="@color/colorWhite"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
