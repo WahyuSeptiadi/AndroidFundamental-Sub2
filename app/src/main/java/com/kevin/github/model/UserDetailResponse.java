@@ -8,7 +8,7 @@ public class UserDetailResponse {
     @SerializedName("id")
     long id;
     @SerializedName("avatar_url")
-    String avatar_url;
+    String avatarUrl;
     @SerializedName("name")
     String name;
     @SerializedName("company")
@@ -16,7 +16,7 @@ public class UserDetailResponse {
     @SerializedName("location")
     String location;
     @SerializedName("public_repos")
-    int public_repos;
+    int publicRepos;
     @SerializedName("followers")
     int followers;
     @SerializedName("following")
@@ -34,8 +34,8 @@ public class UserDetailResponse {
         this.id = id;
     }
 
-    public String getAvatar_url() {
-        return avatar_url;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
     public String getName() {
@@ -50,8 +50,8 @@ public class UserDetailResponse {
         return location;
     }
 
-    public int getPublic_repos() {
-        return public_repos;
+    public int getPublicRepos() {
+        return publicRepos;
     }
 
     public int getFollowers() {
@@ -61,5 +61,4 @@ public class UserDetailResponse {
     public int getFollowing() {
         return following;
     }
-
 }

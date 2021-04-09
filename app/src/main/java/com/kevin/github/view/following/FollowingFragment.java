@@ -32,7 +32,7 @@ public class FollowingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_following, container, false);
 
         recyclerView = view.findViewById(R.id.rv_following);
-        progressBar = view.findViewById(R.id.progress_circular_following);
+        progressBar = view.findViewById(R.id.progress_following);
         message = view.findViewById(R.id.tv_message_following);
 
         setRecyclerView();

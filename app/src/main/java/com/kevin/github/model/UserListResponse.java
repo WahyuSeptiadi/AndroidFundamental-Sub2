@@ -10,7 +10,7 @@ public class UserListResponse {
     @SerializedName("items")
     List<UserResultResponse> items;
 
-    public long getTotal_count() {
+    public long getTotalCount() {
         return total_count;
     }
 

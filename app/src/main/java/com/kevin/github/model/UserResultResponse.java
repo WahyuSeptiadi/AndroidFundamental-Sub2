@@ -38,5 +38,4 @@ public class UserResultResponse {
     public String getType() {
         return type;
     }
-
 }

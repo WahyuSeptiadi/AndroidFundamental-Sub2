@@ -103,7 +103,7 @@ public class SearchActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         message.setVisibility(View.INVISIBLE);
         searchViewModel.getSearchData().observe(this, git_user -> {
-            if (git_user.getTotal_count() > 0) {
+            if (git_user.getTotalCount() > 0) {
                 adapter.setData(git_user.getItems());
 
                 recyclerView.setAdapter(adapter);

@@ -27,6 +27,7 @@
     <pattern value="com.kevin.github.model.UserResultResponse" method="setId" />
     <pattern value="com.kevin.github.ExampleInstrumentedTest" method="useAppContext" />
     <pattern value="com.kevin.github.model.UserResultResponse" />
+    <pattern value="com.kevin.github.model.UserResultResponse" method="getId" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

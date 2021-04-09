@@ -41,7 +41,6 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        //setComponent
         ImageView btnBack = findViewById(R.id.btnBack);
         imgAvatarDetail = findViewById(R.id.imgAvatar);
         username = findViewById(R.id.usernameValue);
@@ -52,7 +51,6 @@ public class DetailActivity extends AppCompatActivity {
         company = findViewById(R.id.companyValue);
         location = findViewById(R.id.locationValue);
 
-        // for tabLayout
         mContext = getBaseContext();
 
         SectionPagerAdapter mSection = new SectionPagerAdapter(getSupportFragmentManager());
@@ -67,21 +65,20 @@ public class DetailActivity extends AppCompatActivity {
                           new ViewModelProvider.NewInstanceFactory()).get(DetailViewModel.class);
         detailViewModel.setDetailUser(username);
 
-        getData();
+        getDataDetail();
 
         btnBack.setOnClickListener(v -> {
             Intent toSearch = new Intent(DetailActivity.this, SearchActivity.class);
             startActivity(toSearch);
-
             finish();
         });
     }
 
-    private void getData() {
+    private void getDataDetail() {
         detailViewModel.getDetailUser().observe(this, git_user -> {
-            Picasso.get().load(git_user.getAvatar_url()).into(imgAvatarDetail);
+            Picasso.get().load(git_user.getAvatarUrl()).into(imgAvatarDetail);
             username.setText(git_user.getLogin());
-            repository.setText(String.valueOf(git_user.getPublic_repos()));
+            repository.setText(String.valueOf(git_user.getPublicRepos()));
             follower.setText(String.valueOf(git_user.getFollowers()));
             following.setText(String.valueOf(git_user.getFollowing()));
 
